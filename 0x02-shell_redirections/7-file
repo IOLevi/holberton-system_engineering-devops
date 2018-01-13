@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e "Holberton School\n" > \\\*\\\\\'\"HolbertonSchool\"\\\'\\\\\*\$\\\?\\\*\\\*\\\*\\\*\\\*\:\)
+echo "Holberton School" > \\\*\\\\\'\"HolbertonSchool\"\\\'\\\\\*\$\\\?\\\*\\\*\\\*\\\*\\\*\:\)
