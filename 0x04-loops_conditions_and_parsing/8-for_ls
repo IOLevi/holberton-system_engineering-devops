@@ -3,5 +3,8 @@
 
 for i in *
 do
-	echo "$i" | cut -d- -f2-
+	if [ -f "$i" ]
+	then
+		echo "$i" | cut -d- -f2-
+	fi
 done
