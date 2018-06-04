@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#kills 4-to_infinity_and_beyond
+
+#killme=$(ps -x | grep ./4- | head -1 | cut -d" " -f2)
+killme=$(pgrep -f 4-to_infinity_and_beyond)
+kill "$killme"
+

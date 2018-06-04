@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#gives process id of bash
+pgrep -l bash
+

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#displays some commands
+
+trap eh SIGTERM
+eh()
+{
+	echo "I am invincible!!!"
+}
+until ((1 > 2))
+do
+	echo To infinity and beyond
+	sleep 2
+done
