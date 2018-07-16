@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
-#ssh client config to use private key holberton and configure
-#to refuse to authenticate using a password
+Host * 
+    HostName 104.196.66.195
+    User ubuntu
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/holberton
 
