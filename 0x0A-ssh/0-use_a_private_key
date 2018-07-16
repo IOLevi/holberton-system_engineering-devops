@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#ssh into remote machine
+ssh ubuntu@104.196.66.195
