@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# sets up server with a redirect to another site
+apt-get update -y
+apt-get install Nginx -y
+echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+rd="location /redirect_me {\nrewrite ^/(.*)$ https://google.com permanent;\n}"
+sudo sed -i "30i $rd" /etc/nginx/sites-available/default
+service nginx restart
