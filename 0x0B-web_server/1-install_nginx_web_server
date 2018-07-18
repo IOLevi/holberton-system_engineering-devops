@@ -3,4 +3,4 @@
 apt-get update -y
 apt-get install Nginx -y
 echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
-service nginx start
+service nginx restart
