@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # sets up server with a redirect and custom 404
-apt-get update -y
-apt-get install Nginx -y
+sudo apt-get update -y
+sudo apt-get install Nginx -y
 MYHOST=$(cat /etc/hostname)
 n5="add_header X-Served-By $MYHOST;"
 sudo sed -i "29i $n5" /etc/nginx/sites-available/default
-service nginx restart
+sudo service nginx restart
