@@ -1,5 +1,7 @@
-add-apt-repository ppa:vbernat/haproxy-1.5
+#!/usr/bin/env bash
+# install/config haproxy
 apt-get update
-apt-get install haproxy
-#nano /etc/default/haproxy change ENABLED=1
+add-apt-repository ppa:vbernat/haproxy-1.5
+apt-get install haproxy -y
+sed -i -e 's/ENABLED=0/ENABLED=1/g' /etc/default/haproxy
 sed /etc/haproxy/haproxy.cfg ...
