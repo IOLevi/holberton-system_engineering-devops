@@ -2,13 +2,7 @@
 # sets up server with a redirect and custom 404
 apt-get update -y
 apt-get install Nginx -y
-echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
-rd="location /redirect_me {\nrewrite ^/(.*)$ https://google.com permanent;\n}"
-sudo sed -i "30i $rd" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
-n4="error_page 404 /404.html;\nlocation = /404.html {\nroot /usr/share/nginx/html;\ninternal;\n}"
-sudo sed -i "33i $n4" /etc/nginx/sites-available/default
 MYHOST=$(cat /etc/hostname)
-n5="add_header X-Served-By $MYHOST"
+n5="add_header X-Served-By $MYHOST;"
 sudo sed -i "29i $n5" /etc/nginx/sites-available/default
 service nginx restart
