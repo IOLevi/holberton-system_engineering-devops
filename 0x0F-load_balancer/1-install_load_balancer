@@ -3,13 +3,8 @@
 sudo apt update
 sudo add-apt-repository -y ppa:vbernat/haproxy-1.7
 sudo apt install -y haproxy
-f="frontend http_front\n
-\tbind *:80\n
-\tdefault_backend http_back\n"
-b="backend http_back\n
-\tbalance roundrobin\n
-\tserver 337-web-01 104.196.66.195:80 check\n
-\tserver 337-web-02 35.237.47.86:80 check"
+fe="frontend http_front\n\tbind *:80\n\tdefault_backend http_back\n"
+be="backend http_back\n\tbalance roundrobin\n\tserver 337-web-01 104.196.66.195	:80 check\n\tserver 337-web-02 35.237.47.86:80 check\n"
 sudo sed -i "\$aENABLED=1" /etc/default/haproxy
-sudo sed -i "\$a$f\n$b" /etc/haproxy/haproxy.cfg
+sudo sed -i "\$a$fe\n$be" /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
