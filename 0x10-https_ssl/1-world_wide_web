@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#displays information about subdomains
+
+disp () {
+	t=$(dig "$2" | grep -A1 'ANSWER SECTION:')
+	ip=$(echo "$t" | awk '{print $5}') 
+	echo "The subdomain $1 is a A record and points to $ip"
+
+
+}
+if [ $# -eq 1 ]
+then
+	lb=lb-01.$1
+	web1=web-01.$1
+	web2=web-02.$1
+	www=www.$1
+	disp www "$www"
+	disp lb-01 "$lb"
+	disp web-01 "$web1"
+	disp web-02 "$web2"
+else
+	target=$2.$1
+	disp "$2" "$target"
+fi
