@@ -2,15 +2,13 @@
 #displays information about subdomains
 
 disp () {
-	t=$(dig "$2" | grep -A1 'ANSWER SECTION:' | awk '{print $5}')
-	#ip=$(echo "$t" | awk '{print $5}') 
+	t=$(dig "$2" | grep -A1 'ANSWER SECTION:' | tail -n 1 | awk '{print $5}')
 	echo "The subdomain $1 is a A record and points to $t"
-
-
 }
+
 if [ $# -eq 1 ]
 then
-	disp www www.$1 
+	disp www www.$1
 	disp lb-01 lb-01.$1
 	disp web-01 web-01.$1
 	disp web-02 web-02.$1
