@@ -10,15 +10,10 @@ disp () {
 }
 if [ $# -eq 1 ]
 then
-	lb=lb-01.$1
-	web1=web-01.$1
-	web2=web-02.$1
-	www=www.$1
-	disp www "$www"
-	disp lb-01 "$lb"
-	disp web-01 "$web1"
-	disp web-02 "$web2"
+	disp www www.$1 
+	disp lb-01 lb-01.$1
+	disp web-01 web-01.$1
+	disp web-02 web-02.$1
 else
-	target=$2.$1
-	disp "$2" "$target"
+	disp $2 $2.$1
 fi
