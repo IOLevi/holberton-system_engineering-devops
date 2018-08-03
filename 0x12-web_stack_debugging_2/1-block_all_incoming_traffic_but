@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# fix container to listen on port 8080 and change
+# nginx service to run under user nginx
+#give owner rwx and change owner to nginx:nginx
+chmod 700 /etc/nginx/nginx.conf
+chown nginx:nginx /etc/nginx/nginx.conf
+#change server to listen on 8080
+sed -i 's/80 default_server/8080 default_server' /etc/nginx/sites-available/default
+#restart service with nginx as the user instead of root
+sudo -u nginx service nginx restart
+
