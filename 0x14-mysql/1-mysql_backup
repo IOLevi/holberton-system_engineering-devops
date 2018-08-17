@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 #creates a dump from all databases and gzips it
 dt=$(date '+%d-%m-%Y')
-mysqldump -u root -p $1 --opt --all-databases > backup.sql
+mysqldump -u root -p"$1" --all-databases > backup.sql
 tar -czf "$dt".tar.gz backup.sql
