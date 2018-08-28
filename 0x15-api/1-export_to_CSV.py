@@ -6,7 +6,8 @@ import sys
 if __name__ == '__main__':
     employee_id = sys.argv[1]
     tasksr = requests.get(
-        "https://jsonplaceholder.typicode.com/todos?userId={}".format(employee_id))
+        "https://jsonplaceholder.typicode.com/todos?userId={}".
+        format(employee_id))
     r = tasksr.json()  # list of dictionaries
     someiterable = []
     response = requests.get(
@@ -22,6 +23,7 @@ if __name__ == '__main__':
         a.append("{}".format(task.get('title', None)))
         someiterable.append(a)
 
-    with open("{}.csv".format(employee_id), 'w', newline='', encoding='utf-8') as f:
+    with open("{}.csv".format(employee_id),
+              'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         writer.writerows(someiterable)
