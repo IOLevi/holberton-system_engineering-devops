@@ -6,7 +6,8 @@ import sys
 if __name__ == '__main__':
     employee_id = sys.argv[1]
     tasksr = requests.get(
-        "https://jsonplaceholder.typicode.com/todos?userId={}".format(employee_id))
+        "https://jsonplaceholder.typicode.com/todos?userId={}".
+        format(employee_id))
     r = tasksr.json()  # list of dictionaries
     response = requests.get(
         "https://jsonplaceholder.typicode.com/users/{}".format(employee_id))
