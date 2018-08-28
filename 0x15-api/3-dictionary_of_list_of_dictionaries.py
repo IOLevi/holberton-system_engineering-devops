@@ -12,7 +12,8 @@ if __name__ == '__main__':
         employee_id = emp.get('id', None)
 
         r = requests.get(
-            "https://jsonplaceholder.typicode.com/todos?userId={}".format(employee_id)).json()
+            "https://jsonplaceholder.typicode.com/todos?userId={}".
+            format(employee_id)).json()
         task_list = []
 
         for task in r:
@@ -25,5 +26,6 @@ if __name__ == '__main__':
 
     j = json.dumps(emp_dict)
 
-    with open("todo_all_employees.json".format(employee_id), 'w', encoding='utf-8') as a:
+    with open("todo_all_employees.json".format(employee_id),
+              'w', encoding='utf-8') as a:
         a.write(j)
