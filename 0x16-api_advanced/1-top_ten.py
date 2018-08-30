@@ -19,7 +19,3 @@ def top_ten(subreddit):
             print(i['data']['title'])
     except BaseException:
         print('None')
-
-
-if __name__ == '__main__':
-    top_ten(sys.argv[1])

@@ -5,6 +5,7 @@ import sys
 
 
 def re(data, hot_list=[], index=0):
+    'actual recursion'
     try:
         data['data']['children'][index]['data']['title']
         re(data, hot_list, index + 1)
@@ -23,7 +24,3 @@ def recurse(subreddit, hot_list=[]):
             "user-agent": 'levi'}).json()
 
     return re(response)
-
-
-if __name__ == '__main__':
-    recurse(sys.argv[1])
