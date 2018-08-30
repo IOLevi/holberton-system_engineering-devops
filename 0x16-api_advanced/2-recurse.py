@@ -23,4 +23,4 @@ def recurse(subreddit, hot_list=[]):
         headers={
             "user-agent": 'levi'}).json()
 
-    return re(response)
+    return re(response) if hot_list else None
