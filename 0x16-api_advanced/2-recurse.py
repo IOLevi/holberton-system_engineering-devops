@@ -3,18 +3,6 @@
 import requests
 import sys
 
-
-def re(data, hot_list=[], index=0):
-    'actual recursion'
-    try:
-        data['data']['children'][index]['data']['title']
-        re(data, hot_list, index + 1)
-    except BaseException:
-        return hot_list
-    hot_list.append(data['data']['children'][index]['data']['title'])
-    return hot_list
-
-
 def recurse(subreddit, hot_list=[]):
     'recursively return a list of all hot posts'
     response = requests.get(
@@ -22,5 +10,16 @@ def recurse(subreddit, hot_list=[]):
         allow_redirects=False,
         headers={
             "user-agent": 'levi'}).json()
+        
+    def re(data, hot_list=[], index=0):
+        'actual recursion'
+        try:
+            data['data']['children'][index]['data']['title']
+            re(data, hot_list, index + 1)
+        except BaseException:
+            return hot_list
+        hot_list.append(data['data']['children'][index]['data']['title'])
+        return hot_list
+
     mylist = re(response)
     return mylist if mylist else None
