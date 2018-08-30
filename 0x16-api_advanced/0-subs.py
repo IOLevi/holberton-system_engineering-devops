@@ -4,12 +4,14 @@
 import requests
 import sys
 
+
 def number_of_subscribers(subreddit):
     'calculates the number of subscribers'
-    response = requests.get("http://www.reddit.com/r/{}/about.json".format(subreddit), headers= {"user-agent": 'levi'}).json()
+    response = requests.get("https://www.reddit.com/r/{}/about.json".
+                            format(subreddit), allow_redirects=False,
+                            headers={"user-agent": 'levi'}).json()
 
     try:
         return (response['data']['subscribers'])
-    except:
+    except BaseException:
         return 0
-
