@@ -12,7 +12,7 @@ def top_ten(subreddit):
         headers={
             "user-agent": 'levi'},
         params={
-            'limit': 8}).json()
+            'limit': 10}).json()
 
     try:
         for i in response['data']['children']:
