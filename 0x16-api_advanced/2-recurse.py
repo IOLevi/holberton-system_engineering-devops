@@ -9,15 +9,20 @@ def recurse(subreddit, hot_list=[]):
         "https://www.reddit.com/r/{}/hot.json".format(subreddit),
         allow_redirects=False,
         headers={
-            "user-agent": 'levi'}).json()
+            "user-agent": 'levi'}, params={'limit':100}).json()
         
     def re(data, hot_list=[], index=0):
         'actual recursion'
         try:
             data['data']['children'][index]['data']['title']
-            re(data, hot_list, index + 1)
+            re(data, after, hot_list, index + 1)
         except BaseException:
+            after = data['data']['after']
+            if after:
+                new = requests.get("https://www.reddit.com/r/{}/hot.json".format(subreddit), params={'limit':100, 'after':after}, allow_redirects=False, headers={"user-agent":'levi'}).json()
+                re(new, hot_list)
             return hot_list
+
         hot_list.append(data['data']['children'][index]['data']['title'])
         return hot_list
 
