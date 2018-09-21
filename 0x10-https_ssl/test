@@ -1,0 +1,8 @@
+The subdomain www is a A record and points to 
+35.237.9.239
+The subdomain lb-01 is a A record and points to 
+35.237.9.239
+The subdomain web-01 is a A record and points to 
+104.196.66.195
+The subdomain web-02 is a A record and points to 
+35.237.47.86
